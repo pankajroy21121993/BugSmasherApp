@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    width: 90%;
+    max-width: 400px; /* Typical phone width */
+    height: 600px;
+    background-color: #a3d9a3; /* Green "lawn" background */
+    border: 5px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Important: keeps bugs inside */
+}
+
+h1 {
+    color: #38761d;
+}
+
+#score-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#game-area {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 70px); /* Adjust height for score and title */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewport="0 0 100 100" style="font-size:24px;"><text y="50%">👆</text></svg>') 16 16, pointer; /* Custom pointer for tap */
+}
+
+/* NEW: Styles for the bug container and image */
+.bug-container {
+    position: absolute;
+    width: 80px;   
+    height: 80px;  
+    user-select: none;
+    transition: opacity 0.1s ease-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensures the glow doesn't get clipped */
+    overflow: visible; 
+}
+
+.bug-image {
+    width: 100%;  
+    height: 100%; 
+    object-fit: contain; 
+}
+
+/* --- NEW: Shining Bug Styles --- */
+.shining-bug {
+    /* Apply the glowing animation */
+    animation: glow 1.5s infinite alternate; /* 1.5s duration, repeats, alternates between keyframes */
+    /* Add a subtle shadow for depth even without full glow */
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Initial yellow-gold shadow */
+}
+
+/* Define the glow animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5), /* Subtle gold */
+                    0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), /* Brighter gold */
+                    0 0 25px rgba(255, 215, 0, 0.6),
+                    0 0 35px rgba(255, 215, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5), /* Back to subtle */
+                    0 0 10px rgba(255, 215, 0, 0.3);
+    }
+}
