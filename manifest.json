@@ -1,0 +1,22 @@
+{
+  "name": "Bug Smasher Game",
+  "short_name": "Smasher",
+  "description": "Smash bugs in this exciting 60-second time trial game!",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#a3d9a3",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
